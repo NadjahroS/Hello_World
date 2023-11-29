@@ -1,0 +1,8 @@
+{
+    "/oauth": {
+      "target": "https://dev-xmsy4k5t5v2yf225.us.auth0.com",
+      "secure": false,
+      "changeOrigin": true
+    }
+  }
+  
