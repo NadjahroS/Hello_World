@@ -8,14 +8,13 @@ import { StreamChatModule, StreamAutocompleteTextareaModule } from 'stream-chat-
 import { AuthModule } from '@auth0/auth0-angular';
 import { AuthComponent } from './auth/auth.component';
 import { HttpClientModule } from '@angular/common/http'; 
-import { HttpClient } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-import { MessageComponent } from './message/message.component';
-import { ChannelPreviewComponent } from './channel-preview/channel-preview.component';
 import { AuthApiService } from './api/api.component';
+import { ProfileComponent } from './profile/profile.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
-  declarations: [AppComponent, AuthComponent, MessageComponent, ChannelPreviewComponent],
+  declarations: [AppComponent, AuthComponent, ProfileComponent, NavbarComponent],
   imports: [
     BrowserModule,
     TranslateModule.forRoot(),
@@ -23,15 +22,19 @@ import { AuthApiService } from './api/api.component';
     StreamChatModule,
     AuthModule.forRoot({
       domain: 'dev-xmsy4k5t5v2yf225.us.auth0.com',
-      clientId: 'J5GIHQQAdxXZyI6CMLLaWMBc47XNHoBy',
+      clientId: 'zZhBoC6t8wAYAP2GJXXAyUCyPBtDVuQi',
       authorizationParams: {
-        redirect_uri: window.location.origin
+        redirectUri: "https://localhost:4200"
       }
     }),
     AppRoutingModule,
     HttpClientModule,
   ],
+  providers: [AuthModule],
   bootstrap: [AppComponent],
+  exports: [
+    ProfileComponent
+  ],
 })
 export class AppModule {}
 

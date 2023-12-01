@@ -7,28 +7,25 @@ import { AuthApiService } from './api/api.component';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  template: '<router-outlet></router-outlet>',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
-  constructor(
-    private streamI18nService: StreamI18nService,
-    private auth: AuthService,
-    private streamService: StreamService,
-    private http: HttpClient,
-    private api: AuthApiService
-  ) {}
+export class AppComponent {}
+// export class AppComponent implements OnInit {
 
-  ngOnInit() {
-    this.api.getToken();
-    // let token : string = "";
-    
+  // isAuth0Loading$ = this.authService.isLoading$;
+  // constructor(private authService: AuthService) {}
+  // constructor(
+  //   private streamI18nService: StreamI18nService,
+  //   private auth: AuthService,
+  //   private streamService: StreamService,
+  //   private http: HttpClient,
+  //   private api: AuthApiService
+  // ) {}
+
+  // ngOnInit() {
     // this.api.getToken();
-
-    // this.api.sendToken(token);
-    
     // this.streamI18nService.setTranslation();
-    
 
     // this.auth.isAuthenticated$.subscribe((isAuthenticated) => {
     //   console.log('Is Authenticated:', isAuthenticated);
@@ -53,5 +50,5 @@ export class AppComponent implements OnInit {
     // }, (error) => {
     //     console.error('Error:', error);
     // });
-  }
-}
+  // }
+// }

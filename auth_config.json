@@ -1,6 +1,6 @@
 {
-  "domain": "{yourDomain}",
-  "clientId": "{yourClientId}",
+  "domain": "dev-xmsy4k5t5v2yf225.us.auth0.com",
+  "clientId": "J5GIHQQAdxXZyI6CMLLaWMBc47XNHoBy",
   "authorizationParams": {
     "audience": "{yourApiIdentifier}"
   },

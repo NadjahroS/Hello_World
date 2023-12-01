@@ -64,6 +64,9 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
+            "sslKey": "private-key.pem",
+            "sslCert": "certificate.pem",
+            "ssl": true,
             "proxyConfig": "proxy.conf.json"
           },
           "configurations": {

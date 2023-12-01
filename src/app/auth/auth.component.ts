@@ -8,19 +8,27 @@ import { AuthService } from '@auth0/auth0-angular';
 export class AuthComponent {
   constructor(private auth: AuthService) {}
 
-  login(): void {
+  login() {
     this.auth.loginWithRedirect();
   }
+
+  // login(): void {
+  //   this.auth.loginWithRedirect({
+  //     appState: {
+  //       target: '/profile',
+  //     },
+  //   });
+  // }
 }
 
-export class YourComponent {
-  constructor(private auth: AuthService) {
-    this.auth.user$.subscribe((user) => {
-      console.log(user); // Log user information
-    });
+// export class YourComponent {
+//   constructor(private auth: AuthService) {
+//     this.auth.user$.subscribe((user) => {
+//       console.log(user); // Log user information
+//     });
 
-    this.auth.error$.subscribe((error) => {
-      console.error(error); // Log authentication errors
-    });
-  }
-}
+//     this.auth.error$.subscribe((error) => {
+//       console.error(error); // Log authentication errors
+//     });
+//   }
+// }
