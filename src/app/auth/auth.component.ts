@@ -1,24 +1,38 @@
-import { Component } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-auth',
-  template: '<button (click)="login()">Log in with Auth0</button>',
+  templateUrl: './auth.component.html',
 })
 export class AuthComponent {
-  constructor(private auth: AuthService) {}
+  
+  constructor(
+    public auth: AuthService,
+    @Inject(DOCUMENT) private doc: Document
+    ) {}
 
-  login() {
-    this.auth.loginWithRedirect();
+    isAuthenticated$ = this.auth.isAuthenticated$
+
+  login(): void {
+    this.auth.loginWithRedirect({
+      appState: {
+        target: '/profile',
+      },
+      // authorizationParams: {
+      //   prompt: 'login',
+      // },
+    });
   }
 
-  // login(): void {
-  //   this.auth.loginWithRedirect({
-  //     appState: {
-  //       target: '/profile',
-  //     },
-  //   });
-  // }
+  logout(): void {
+    this.auth.logout({
+      logoutParams: {
+        returnTo: this.doc.location.origin,
+      },
+    });
+  }
 }
 
 // export class YourComponent {

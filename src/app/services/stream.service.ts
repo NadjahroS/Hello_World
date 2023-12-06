@@ -1,5 +1,3 @@
-// stream.service.ts
-
 import { Injectable } from '@angular/core';
 import { AfterViewInit, Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import {
@@ -45,7 +43,6 @@ export class StreamService {
     }
 
   ngAfterViewInit(): void {
-    // Register your template
     this.customTemplatesService.messageTemplate$.next(this.messageTemplate);
     this.customTemplatesService.channelPreviewTemplate$.next(this.channelPreviewTemplate);
   }

@@ -7,48 +7,14 @@ import { Observable } from 'rxjs';
 })
 export class AuthApiService {
 
-  constructor(private http: HttpClient) { } 
+  constructor(public http: HttpClient) { } 
 
-  getToken() {
-    // Define the request body
-    const requestBody = {
-      client_id: 'WnNWNMh7gRAl59y75bStc39n3mP3s3fS',
-      client_secret: 'nD1-VanYLFQwnYJFWg-KQtP-cXB6Oa_MSS96P2KDV0Dkd6LnRSmn9c12pgWudo34',
-      audience: 'https://hello/api',
-      grant_type: 'client_credentials'
-    };
-  
-    // Define the headers
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
-    });
-  
-    // Make the POST request
-    this.http.post('/oauth/token', requestBody, { headers })
-      .subscribe(
-        (response) => {
-          // Handle the response here
-          console.log('Token response:', response);
-          this.sendToken(response);
-        },
-        (error) => {
-          // Handle errors here
-          console.error('Error:', error);
-        }
-      );
-  }
-  
-  sendToken(token: any) {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`,
-    });
-
-    // Make an HTTP GET request with headers
-    this.http.get<any>('/oauth/token/api', { headers })
+  getProtected() {
+    this.http.get<any>('https://localhost:6060/api/messages/protected')
     .subscribe(
       (response) => {
         // Handle the response here
+        console.log(response);
         console.log('succes get');
       },
       (error) => {
@@ -57,4 +23,6 @@ export class AuthApiService {
       }
     );
   }
+
+  
 }

@@ -1,30 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 import { StreamI18nService } from 'stream-chat-angular';
-import { StreamService } from './stream.service';
+import { StreamService } from './services/stream.service';
 import { HttpClient } from '@angular/common/http';
 import { AuthApiService } from './api/api.component';
 
 @Component({
   selector: 'app-root',
-  template: '<router-outlet></router-outlet>',
+  templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {}
-// export class AppComponent implements OnInit {
+// export class AppComponent {}
+export class AppComponent implements OnInit {
 
   // isAuth0Loading$ = this.authService.isLoading$;
-  // constructor(private authService: AuthService) {}
-  // constructor(
-  //   private streamI18nService: StreamI18nService,
-  //   private auth: AuthService,
-  //   private streamService: StreamService,
-  //   private http: HttpClient,
-  //   private api: AuthApiService
-  // ) {}
+  constructor(
+    // private streamI18nService: StreamI18nService,
+    // private auth: AuthService,
+    // private streamService: StreamService,
+    // private http: HttpClient,
+    private api: AuthApiService
+  ) {}
 
-  // ngOnInit() {
-    // this.api.getToken();
+  ngOnInit() {
+    this.api.getProtected();
     // this.streamI18nService.setTranslation();
 
     // this.auth.isAuthenticated$.subscribe((isAuthenticated) => {
@@ -50,5 +49,5 @@ export class AppComponent {}
     // }, (error) => {
     //     console.error('Error:', error);
     // });
-  // }
-// }
+  }
+}
