@@ -28,8 +28,8 @@ export class AuthApiService {
     );
   }
 
-  getToken() {
-    return this.http.get('http://localhost:6060/api/stream/token', {
+  getToken(username: string) {
+    return this.http.get('http://localhost:6060/api/stream/token?username=${username}', {
       responseType: 'text'
     }).subscribe(
       (response) => {

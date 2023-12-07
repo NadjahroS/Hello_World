@@ -13,12 +13,25 @@ import { AuthApiService } from './api/api.component';
 export class AppComponent implements OnInit {
 
   constructor(
-    private api: AuthApiService
+    private api: AuthApiService,
+    private auth: AuthService
   ) {}
 
   ngOnInit() {
     this.api.getProtected();
 
-    this.api.getToken();
+    var name = "";
+
+    this.auth.user$.subscribe(user => {
+      // Now 'user' contains the user information
+      if (user && user.name) {
+        name = user.name;
+        console.log(user.name); // Access the user properties as needed
+      } else {
+        console.log('User not available or name is undefined');
+      }
+    });
+
+    this.api.getToken(name);
   }
 }
