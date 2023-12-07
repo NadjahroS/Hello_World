@@ -15,18 +15,6 @@ import { CallbackComponent } from './callback/callback.component';
 
 import * as env from './../../env.json';
 
-function configInitializer(
-  handler: HttpBackend,
-  config: AuthClientConfig
-) {
-  return () =>
-    new HttpClient(handler)
-      .get('/config')
-      .toPromise()
-      // Set the config that was loaded asynchronously here
-      .then((loadedConfig: any) => config.set(loadedConfig));
-}
-
 export function tokenGetter() {
   console.log("Token.....");
   return localStorage.getItem("access_token");
@@ -44,10 +32,11 @@ export function tokenGetter() {
       domain: 'dev-xmsy4k5t5v2yf225.us.auth0.com',
       clientId: 'J5GIHQQAdxXZyI6CMLLaWMBc47XNHoBy',
       authorizationParams: {
-        redirect_uri: 'https://localhost:4200/callback'
+        redirect_uri: 'https://localhost:4200/callback',
+        audience: 'https://hello-world.com'
       },
       httpInterceptor: {
-        allowedList: ['http://localhost:6060'],
+        allowedList: ['http://localhost:6060*'],
       },
     }),
     AppRoutingModule,

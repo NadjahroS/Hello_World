@@ -20,9 +20,9 @@ export class AuthComponent {
       appState: {
         target: '/profile',
       },
-      // authorizationParams: {
-      //   prompt: 'login',
-      // },
+      authorizationParams: {
+        prompt: 'login',
+      },
     });
   }
 
