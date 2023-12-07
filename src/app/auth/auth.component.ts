@@ -33,6 +33,17 @@ export class AuthComponent {
       },
     });
   }
+
+  signup(): void {
+    this.auth.loginWithRedirect({
+      appState: {
+        target: '/profile',
+      },
+      authorizationParams: {
+        screen_hint: 'signup',
+      },
+    });
+  }
 }
 
 // export class YourComponent {
