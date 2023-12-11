@@ -1,6 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
+import { Observable } from 'rxjs';
+import { TokenProvider } from 'stream-chat';
 
 @Injectable({
   providedIn: 'root'
@@ -13,16 +15,16 @@ export class ApiService {
     public auth: AuthService,
     ) { } 
 
-  getToken(username: string): void {
-    this.http.get<any>(`${this.baseUrl}/api/stream/token?username=${username}`)
-    .subscribe(
-      (response) => {
-        console.log(response);
-      },
-      (error) => {
-        console.error('Error:', error);
-      }
-    );
+  getToken(username: string): Observable<any>{
+    return this.http.get(`${this.baseUrl}/api/stream/token?username=${username}`) 
+    // .subscribe(
+    //   (response) => {
+    //     console.log(response);
+    //   },
+    //   (error) => {
+    //     console.error('Error:', error);
+    //   }
+    // );
   }
 
   getChannel(channelType: string, channelId: string, user1: string, user2: string) {
@@ -53,7 +55,7 @@ export class ApiService {
       );
   }
 
-  addMessage(channelType: string, channelId: string, user: string, message: string) {
+  addMessage(channelType: string, channelId: string, user: string, message: string): Observable <any> {
     const headers = { 'Content-Type': 'application/json' };
     // const headers = new HttpHeaders().set('Content-Type', 'application/json');
     
@@ -64,17 +66,17 @@ export class ApiService {
     //     channelType: channelType,
     // };
 
-    this.http.get<any>(`${this.baseUrl}/api/stream/message?channelType=${channelType}&channelId=${channelId}&user=${user}&message=${message}`, {headers})
-     .subscribe(
-      (response) => {
-        // Handle the response here
-        console.log(response);
-        console.log('success post');
-      },
-      (error) => {
-        console.error('Error:', error);
-      }
-    );
+    return this.http.get<any>(`${this.baseUrl}/api/stream/message?channelType=${channelType}&channelId=${channelId}&user=${user}&message=${message}`, {headers})
+    //  .subscribe(
+    //   (response) => {
+    //     // Handle the response here
+    //     console.log(response);
+    //     console.log('success post');
+    //   },
+    //   (error) => {
+    //     console.error('Error:', error);
+    //   }
+    // );
   }
 
   // getToken() {

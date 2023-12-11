@@ -7,6 +7,7 @@ import { AuthModule, AuthClientConfig, AuthHttpInterceptor  } from '@auth0/auth0
 import { AuthComponent } from './auth/auth.component';
 import { HTTP_INTERCEPTORS, HttpBackend, HttpClient, HttpClientModule } from '@angular/common/http'; 
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
 
 import { ProfileComponent } from './profile/profile.component';
 import { CallbackComponent } from './callback/callback.component';
@@ -37,6 +38,7 @@ export function tokenGetter() {
         allowedList: ['https://localhost:7183*'],
       },
     }),
+    FormsModule,
     AppRoutingModule,
   ],
   providers: [
