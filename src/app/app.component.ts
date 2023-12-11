@@ -14,21 +14,23 @@ export class AppComponent implements OnInit {
 
   constructor(
     private api: ApiService,
-    private auth: AuthService
+    private auth: AuthService,
+    private stream: StreamI18nService
   ) {}
 
   ngOnInit() {
-    // this.api.getProtected();
-
     var email = "";
 
     this.auth.user$.subscribe(user => {
-      // Now 'user' contains the user information
       if (user && user.name) {
         email = user.name;
         this.api.getToken(email);
         this.api.addUser(email);
-        console.log(user.email); // Access the user properties as needed
+        this.api.addUser(email+'2');
+        this.api.getChannel('messaging', 'testChannel', email, email+'2');
+        this.api.addMessage('messaging', 'testChannel', email, 'Test msg');
+        this.api.getChannel('messaging', 'testChannel', email, email+'2');
+        console.log(user.email);
       } else {
         console.log('User not available or name is undefined');
       }

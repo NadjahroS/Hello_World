@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 
@@ -6,34 +6,30 @@ import { AuthService } from '@auth0/auth0-angular';
   providedIn: 'root'
 })
 export class ApiService {
+  private baseUrl = 'https://localhost:7183';
 
   constructor(
     public http: HttpClient,
     public auth: AuthService,
     ) { } 
 
-  getProtected() {
-    this.http.get<any>('http://localhost:6060/api/messages/protected')
+  getToken(username: string): void {
+    this.http.get<any>(`${this.baseUrl}/api/stream/token?username=${username}`)
     .subscribe(
       (response) => {
-        // Handle the response here
         console.log(response);
-        console.log('succes get');
       },
       (error) => {
-        // Handle errors here
         console.error('Error:', error);
       }
     );
   }
 
-  getToken(username: string): void {
-    this.http.get(`https://localhost:7183/api/stream/token?username=${username}`, {
-      responseType: 'text'
-    }).subscribe(
+  getChannel(channelType: string, channelId: string, user1: string, user2: string) {
+    this.http.get(`${this.baseUrl}/api/stream/channel?channelType=${channelType}&channelId=${channelId}&user1=${user1}&user2=${user2}`)
+    .subscribe(
       (response) => {
         console.log(response);
-        console.log('Success get');
       },
       (error) => {
         console.error('Error:', error);
@@ -44,23 +40,41 @@ export class ApiService {
   addUser(username: string) {
     const headers = { 'Content-Type': 'application/json' };
   
-    this.http.post<any>(`https://localhost:7183/api/stream/user?username=${username}`, { headers: headers })
+    this.http.post<any>(`${this.baseUrl}/api/stream/user?username=${username}`, { headers: headers })
       .subscribe(
         (response) => {
           // Handle the response here
           console.log(response);
-          console.log('success post');
         },
         (error) => {
           // Handle errors here
           console.error('Error:', error);
-  
-          if (error.error && error.error.errors) {
-            // Log validation errors if available
-            console.error('Validation errors:', error.error.errors);
-          }
         }
       );
+  }
+
+  addMessage(channelType: string, channelId: string, user: string, message: string) {
+    const headers = { 'Content-Type': 'application/json' };
+    // const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    
+    // const body = {
+    //     user: user,
+    //     message: message,
+    //     channelId: channelId,
+    //     channelType: channelType,
+    // };
+
+    this.http.get<any>(`${this.baseUrl}/api/stream/message?channelType=${channelType}&channelId=${channelId}&user=${user}&message=${message}`, {headers})
+     .subscribe(
+      (response) => {
+        // Handle the response here
+        console.log(response);
+        console.log('success post');
+      },
+      (error) => {
+        console.error('Error:', error);
+      }
+    );
   }
 
   // getToken() {
@@ -90,25 +104,5 @@ export class ApiService {
   //         console.error('Error:', error);
   //       }
   //     );
-  // }
-  
-  // sendToken(token: any) {
-  //   const headers = new HttpHeaders({
-  //     'Content-Type': 'application/json',
-  //     'Authorization': `Bearer ${token}`,
-  //   });
-
-  //   // Make an HTTP GET request with headers
-  //   this.http.get<any>('/oauth/token/api', { headers })
-  //   .subscribe(
-  //     (response) => {
-  //       // Handle the response here
-  //       console.log('succes get');
-  //     },
-  //     (error) => {
-  //       // Handle errors here
-  //       console.error('Error:', error);
-  //     }
-  //   );
   // }
 }

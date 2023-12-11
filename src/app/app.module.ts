@@ -9,7 +9,6 @@ import { HTTP_INTERCEPTORS, HttpBackend, HttpClient, HttpClientModule } from '@a
 import { AppRoutingModule } from './app-routing.module';
 
 import { ProfileComponent } from './profile/profile.component';
-import { NavbarComponent } from './navbar/navbar.component';
 import { CallbackComponent } from './callback/callback.component';
 
 import * as env from './../../env.json';
@@ -20,7 +19,7 @@ export function tokenGetter() {
 }
 
 @NgModule({
-  declarations: [AppComponent, AuthComponent, ProfileComponent, NavbarComponent, CallbackComponent],
+  declarations: [AppComponent, AuthComponent, ProfileComponent, CallbackComponent],
   imports: [
     BrowserModule,
     TranslateModule.forRoot(),
