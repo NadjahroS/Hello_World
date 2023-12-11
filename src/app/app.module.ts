@@ -8,7 +8,6 @@ import { AuthComponent } from './auth/auth.component';
 import { HTTP_INTERCEPTORS, HttpBackend, HttpClient, HttpClientModule } from '@angular/common/http'; 
 import { AppRoutingModule } from './app-routing.module';
 
-import { AuthApiService } from './api/api.component';
 import { ProfileComponent } from './profile/profile.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CallbackComponent } from './callback/callback.component';
@@ -36,7 +35,7 @@ export function tokenGetter() {
         audience: 'https://hello-world.com'
       },
       httpInterceptor: {
-        allowedList: ['http://localhost:6060*'],
+        allowedList: ['https://localhost:7183*'],
       },
     }),
     AppRoutingModule,

@@ -1,12 +1,11 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { AuthService } from '@auth0/auth0-angular';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthApiService {
+export class ApiService {
 
   constructor(
     public http: HttpClient,
@@ -28,20 +27,40 @@ export class AuthApiService {
     );
   }
 
-  getToken(username: string) {
-    return this.http.get('http://localhost:6060/api/stream/token?username=${username}', {
+  getToken(username: string): void {
+    this.http.get(`https://localhost:7183/api/stream/token?username=${username}`, {
       responseType: 'text'
     }).subscribe(
       (response) => {
-        // Handle the response here
         console.log(response);
-        console.log('succes get');
+        console.log('Success get');
       },
       (error) => {
-        // Handle errors here
         console.error('Error:', error);
       }
     );
+  }
+  
+  addUser(username: string) {
+    const headers = { 'Content-Type': 'application/json' };
+  
+    this.http.post<any>(`https://localhost:7183/api/stream/user?username=${username}`, { headers: headers })
+      .subscribe(
+        (response) => {
+          // Handle the response here
+          console.log(response);
+          console.log('success post');
+        },
+        (error) => {
+          // Handle errors here
+          console.error('Error:', error);
+  
+          if (error.error && error.error.errors) {
+            // Log validation errors if available
+            console.error('Validation errors:', error.error.errors);
+          }
+        }
+      );
   }
 
   // getToken() {
