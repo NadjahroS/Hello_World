@@ -18,7 +18,7 @@ export class AuthComponent {
   login(): void {
     this.auth.loginWithRedirect({
       appState: {
-        target: '/profile',
+        target: '/chat',
       },
       authorizationParams: {
         prompt: 'login',

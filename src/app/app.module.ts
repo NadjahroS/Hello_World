@@ -13,6 +13,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { CallbackComponent } from './callback/callback.component';
 
 import * as env from './../../env.json';
+import { ChatComponent } from './chat/chat.component';
 
 export function tokenGetter() {
   console.log("Token.....");
@@ -20,7 +21,7 @@ export function tokenGetter() {
 }
 
 @NgModule({
-  declarations: [AppComponent, AuthComponent, ProfileComponent, CallbackComponent],
+  declarations: [AppComponent, AuthComponent, ProfileComponent, CallbackComponent, ChatComponent],
   imports: [
     BrowserModule,
     TranslateModule.forRoot(),
