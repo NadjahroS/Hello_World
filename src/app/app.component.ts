@@ -64,7 +64,7 @@ export class AppComponent implements OnInit {
             this.channelService.init({
             type: 'messaging',
             id: { $eq: testt },
-          })
+          });
           });
         } else {
           console.log('User not available or name is undefined');
