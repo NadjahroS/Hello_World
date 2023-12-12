@@ -4,7 +4,8 @@ import { Component } from '@angular/core';
   selector: 'lib-chat-widget',
   template: `
     <p>
-      chat-widget works!
+      <app-auth></app-auth>
+      <app-chat></app-chat>
     </p>
   `,
   styles: [
