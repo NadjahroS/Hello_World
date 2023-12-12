@@ -16,7 +16,8 @@ export class ApiService {
     ) { } 
 
   getToken(username: string): Observable<any>{
-    return this.http.get(`${this.baseUrl}/api/stream/token?username=${username}`) 
+    return this.http.get(`${this.baseUrl}/api/stream/token?username=${username}`,{responseType: 'text'})
+    // return this.http.get<string>(`${this.baseUrl}/api/stream/token?username=${username}`,{responseType: 'text'}) 
     // .subscribe(
     //   (response) => {
     //     console.log(response);
@@ -27,16 +28,16 @@ export class ApiService {
     // );
   }
 
-  getChannel(channelType: string, channelId: string, user1: string, user2: string) {
-    this.http.get(`${this.baseUrl}/api/stream/channel?channelType=${channelType}&channelId=${channelId}&user1=${user1}&user2=${user2}`)
-    .subscribe(
-      (response) => {
-        console.log(response);
-      },
-      (error) => {
-        console.error('Error:', error);
-      }
-    );
+  getChannel(channelType: string, channelId: string, user1: string, user2: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/api/stream/channel?channelType=${channelType}&channelId=${channelId}&user1=${user1}&user2=${user2}`)
+    // .subscribe(
+    //   (response) => {
+    //     console.log(response);
+    //   },
+    //   (error) => {
+    //     console.error('Error:', error);
+    //   }
+    // );
   }
   
   addUser(username: string) {
