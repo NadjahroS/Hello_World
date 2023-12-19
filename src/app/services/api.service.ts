@@ -40,7 +40,7 @@ export class ApiService {
     // );
   }
 
-  getUserChannels(username: string) {
+  getUserChannels(username: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/api/stream/channels?user=${username}`)
   }
   
