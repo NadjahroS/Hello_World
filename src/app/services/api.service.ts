@@ -39,6 +39,10 @@ export class ApiService {
     //   }
     // );
   }
+
+  getUserChannels(username: string) {
+    return this.http.get(`${this.baseUrl}/api/stream/channels?user=${username}`)
+  }
   
   addUser(username: string) {
     const headers = { 'Content-Type': 'application/json' };
