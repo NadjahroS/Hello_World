@@ -51,18 +51,34 @@ export class ChatComponent implements OnInit {
 
             
           });
-          var testt = '';
-          this.api.getChannel('messaging', 'testtt', name, name+'2')
-          .subscribe(response => {
-            console.log(response);
-            testt = response.channel.id;
-            console.log(testt);
 
-            this.channelService.init({
-            type: 'messaging',
-            id: { $eq: testt },
+          this.api.getUserChannels(name).subscribe(response => {
+            console.log(response);
+
+            response.channels.forEach((channel: any) => {
+                var id: string = channel.channel.id;
+
+                this.channelService.init({
+                  type: 'messaging',
+                  id: { $eq: id },
+                })
+
+                console.log(id);
             });
           });
+
+          // var testt = '';
+          // this.api.getChannel('messaging', 'testtt', name, name+'2')
+          // .subscribe(response => {
+          //   console.log(response);
+          //   testt = response.channel.id;
+          //   console.log(testt);
+
+          //   this.channelService.init({
+          //   type: 'messaging',
+          //   id: { $eq: testt },
+          //   });
+          // });
         } else {
           console.log('User not available or name is undefined');
         }
