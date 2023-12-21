@@ -11,9 +11,9 @@ import { FormsModule } from '@angular/forms';
 
 import { ProfileComponent } from './profile/profile.component';
 import { CallbackComponent } from './callback/callback.component';
-
-import * as env from './../../env.json';
 import { ChatComponent } from './chat/chat.component';
+
+import { environment } from '../environments/environment';
 
 export function tokenGetter() {
   console.log("Token.....");
@@ -29,14 +29,14 @@ export function tokenGetter() {
     StreamChatModule,
     HttpClientModule,
     AuthModule.forRoot({
-      domain: 'dev-xmsy4k5t5v2yf225.us.auth0.com',
-      clientId: 'J5GIHQQAdxXZyI6CMLLaWMBc47XNHoBy',
+      domain: environment.domain,
+      clientId: environment.clientId,
       authorizationParams: {
-        redirect_uri: 'https://localhost:4200/callback',
-        audience: 'https://hello-world.com'
+        redirect_uri: environment.callback_url,
+        audience: environment.audience
       },
       httpInterceptor: {
-        allowedList: ['https://localhost:7183*'],
+        allowedList: [environment.api_url+'*'],
       },
     }),
     FormsModule,

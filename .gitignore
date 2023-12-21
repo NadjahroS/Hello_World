@@ -49,3 +49,4 @@ env.json
 localhost-key.pem
 localhost.pem
 proxy_old.conf.pem
+proxy.conf.pem
