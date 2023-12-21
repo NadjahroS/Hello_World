@@ -32,6 +32,7 @@
       "dom"
     ],
     "resolveJsonModule": true,
+    "esModuleInterop": true,
   },
   "angularCompilerOptions": {
     "allowSyntheticDefaultImports": true,
