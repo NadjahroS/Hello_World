@@ -2,6 +2,7 @@
 
 # Compiled output
 /dist
+/projects
 /tmp
 /out-tsc
 /bazel-out
@@ -41,3 +42,10 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Personal
+.env
+env.json
+localhost-key.pem
+localhost.pem
+proxy_old.conf.pem

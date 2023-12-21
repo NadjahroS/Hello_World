@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '@app/services/api.service';
+import { ApiService } from '../services/api.service';
 import { ChannelService, ChatClientService, StreamI18nService } from 'stream-chat-angular';
 import { AuthService } from '@auth0/auth0-angular';
 
