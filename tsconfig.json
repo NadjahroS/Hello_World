@@ -7,8 +7,14 @@
       "@app/*": [
         "app/*"
       ],
-      "chat-widget": [
-        "dist/chat-widget"
+      "@@api": [
+        "dist/api"
+      ],
+      "@@auth": [
+        "dist/auth"
+      ],
+      "@@chat": [
+        "dist/chat"
       ]
     },
     "outDir": "./dist/out-tsc",

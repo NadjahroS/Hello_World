@@ -1,7 +1,0 @@
-<div *ngIf="auth.isAuthenticated$ | async; else loginButton">
-  <button (click)="logout()">Logout</button>
-</div>
-<ng-template #loginButton>
-  <button (click)="login()">Login</button>
-  <button (click)="signup()">Sign up</button>
-</ng-template>
