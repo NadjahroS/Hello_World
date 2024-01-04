@@ -1,0 +1,357 @@
+{
+  "version": "6.0",
+  "nxVersion": "17.2.8",
+  "deps": {
+    "@angular-architects/module-federation": "^14.3.0-beta.3",
+    "@angular/animations": "^15.0.0",
+    "@angular/common": "^15.0.0",
+    "@angular/compiler": "^15.0.0",
+    "@angular/core": "^15.0.0",
+    "@angular/forms": "^15.0.0",
+    "@angular/platform-browser": "^15.0.0",
+    "@angular/platform-browser-dynamic": "^15.0.0",
+    "@angular/router": "^15.0.0",
+    "@auth0/auth0-angular": "^2.2.1",
+    "@ngx-translate/core": "^14.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "rxjs": "~7.5.0",
+    "stream-chat": "^8.14.4",
+    "stream-chat-angular": "^4.51.0",
+    "tslib": "^2.3.0",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^4.10.0",
+    "zone.js": "~0.12.0",
+    "@angular-devkit/build-angular": "^15.0.5",
+    "@angular-devkit/core": "^15.2.10",
+    "@angular-devkit/schematics": "^15.2.10",
+    "@angular-eslint/builder": "15.2.1",
+    "@angular-eslint/eslint-plugin": "15.2.1",
+    "@angular-eslint/eslint-plugin-template": "15.2.1",
+    "@angular-eslint/schematics": "15.2.1",
+    "@angular-eslint/template-parser": "15.2.1",
+    "@angular/cli": "^15.2.10",
+    "@angular/compiler-cli": "^15.0.0",
+    "@nx/angular": "17.2.8",
+    "@nx/workspace": "17.2.8",
+    "@schematics/angular": "^15.2.10",
+    "@types/jasmine": "~4.3.0",
+    "@typescript-eslint/eslint-plugin": "5.48.2",
+    "@typescript-eslint/parser": "5.48.2",
+    "eslint": "^8.33.0",
+    "jasmine-core": "~4.5.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.0.0",
+    "ng-packagr": "^15.2.2",
+    "nx": "17.2.8",
+    "typescript": "~4.8.2"
+  },
+  "pathMappings": {
+    "@app/*": [
+      "app/*"
+    ],
+    "@@api": [
+      "dist/api"
+    ],
+    "@@auth": [
+      "dist/auth"
+    ],
+    "@@chat": [
+      "dist/chat"
+    ]
+  },
+  "nxJsonPlugins": [],
+  "fileMap": {
+    "nonProjectFiles": [],
+    "projectFileMap": {
+      "hello_world": [
+        {
+          "file": "--data",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "--header",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "--url",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": ".editorconfig",
+          "hash": "6686520031028425313"
+        },
+        {
+          "file": ".gitattributes",
+          "hash": "13194702717607086212"
+        },
+        {
+          "file": ".gitignore",
+          "hash": "7548623232405218965"
+        },
+        {
+          "file": ".vscode/extensions.json",
+          "hash": "12343942279124280405"
+        },
+        {
+          "file": ".vscode/launch.json",
+          "hash": "4815948323043747099"
+        },
+        {
+          "file": ".vscode/tasks.json",
+          "hash": "5336636969995539451"
+        },
+        {
+          "file": "README.md",
+          "hash": "1157476606082437821"
+        },
+        {
+          "file": "auth_config.json",
+          "hash": "15339518769758963835"
+        },
+        {
+          "file": "generate-env.js",
+          "hash": "8125602894458309122",
+          "deps": [
+            "npm:fs",
+            "npm:dotenv"
+          ]
+        },
+        {
+          "file": "nx.json",
+          "hash": "3727974092621880912"
+        },
+        {
+          "file": "package-lock.json",
+          "hash": "490077067969069643"
+        },
+        {
+          "file": "package.json",
+          "hash": "6489491520571326070",
+          "deps": [
+            "npm:@angular-architects/module-federation",
+            "npm:@angular/animations",
+            "npm:@angular/common",
+            "npm:@angular/compiler",
+            "npm:@angular/core",
+            "npm:@angular/forms",
+            "npm:@angular/platform-browser",
+            "npm:@angular/platform-browser-dynamic",
+            "npm:@angular/router",
+            "npm:@auth0/auth0-angular",
+            "npm:@ngx-translate/core",
+            "npm:cors",
+            "npm:dotenv",
+            "npm:rxjs",
+            "npm:stream-chat",
+            "npm:stream-chat-angular",
+            "npm:tslib",
+            "npm:webpack",
+            "npm:webpack-cli",
+            "npm:zone.js",
+            "npm:@angular-devkit/build-angular",
+            "npm:@angular-devkit/core",
+            "npm:@angular-devkit/schematics",
+            "npm:@angular-eslint/builder",
+            "npm:@angular-eslint/eslint-plugin",
+            "npm:@angular-eslint/eslint-plugin-template",
+            "npm:@angular-eslint/schematics",
+            "npm:@angular-eslint/template-parser",
+            "npm:@angular/cli",
+            "npm:@angular/compiler-cli",
+            "npm:@nx/angular",
+            "npm:@nx/workspace",
+            "npm:@schematics/angular",
+            "npm:@types/jasmine",
+            "npm:@typescript-eslint/eslint-plugin",
+            "npm:@typescript-eslint/parser",
+            "npm:eslint",
+            "npm:jasmine-core",
+            "npm:karma",
+            "npm:karma-chrome-launcher",
+            "npm:karma-coverage",
+            "npm:karma-jasmine",
+            "npm:karma-jasmine-html-reporter",
+            "npm:ng-packagr",
+            "npm:nx",
+            "npm:typescript"
+          ]
+        },
+        {
+          "file": "project.json",
+          "hash": "14102797260092854057"
+        },
+        {
+          "file": "proxy_old.conf.json",
+          "hash": "7929279870341966544"
+        },
+        {
+          "file": "src/app/app-routing.module.ts",
+          "hash": "15910516090917049110",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router"
+          ]
+        },
+        {
+          "file": "src/app/app.component.html",
+          "hash": "11412630234099565346"
+        },
+        {
+          "file": "src/app/app.component.scss",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "src/app/app.component.ts",
+          "hash": "11238367581122277836",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@auth0/auth0-angular",
+            "npm:stream-chat-angular",
+            "npm:@angular/common",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "src/app/app.module.ts",
+          "hash": "1912475745604230238",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/platform-browser",
+            "npm:@ngx-translate/core",
+            "npm:stream-chat-angular",
+            "npm:@auth0/auth0-angular",
+            "npm:@angular/common",
+            "npm:@angular/forms"
+          ]
+        },
+        {
+          "file": "src/app/auth/auth.component.html",
+          "hash": "6172683712557329204"
+        },
+        {
+          "file": "src/app/auth/auth.component.scss",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "src/app/auth/auth.component.ts",
+          "hash": "8362070799645624125",
+          "deps": [
+            "npm:@angular/common",
+            "npm:@angular/core",
+            "npm:@auth0/auth0-angular"
+          ]
+        },
+        {
+          "file": "src/app/callback/callback.component.html",
+          "hash": "8160203569070417995"
+        },
+        {
+          "file": "src/app/callback/callback.component.ts",
+          "hash": "878365374073488254",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@auth0/auth0-angular"
+          ]
+        },
+        {
+          "file": "src/app/chat/chat.component.html",
+          "hash": "10338666308885258157"
+        },
+        {
+          "file": "src/app/chat/chat.component.scss",
+          "hash": "2907471456116135975"
+        },
+        {
+          "file": "src/app/chat/chat.component.ts",
+          "hash": "48955645950102645",
+          "deps": [
+            "npm:@angular/core",
+            "npm:stream-chat-angular",
+            "npm:@auth0/auth0-angular"
+          ]
+        },
+        {
+          "file": "src/app/profile/profile.component.html",
+          "hash": "463126278704071661"
+        },
+        {
+          "file": "src/app/profile/profile.component.scss",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "src/app/profile/profile.component.ts",
+          "hash": "18035128906641578338",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@auth0/auth0-angular"
+          ]
+        },
+        {
+          "file": "src/app/services/api.service.ts",
+          "hash": "14043895639820643977",
+          "deps": [
+            "npm:@angular/common",
+            "npm:@angular/core",
+            "npm:@auth0/auth0-angular",
+            "npm:rxjs",
+            "npm:stream-chat"
+          ]
+        },
+        {
+          "file": "src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "src/environments/environment.development.ts",
+          "hash": "14819680404651678879"
+        },
+        {
+          "file": "src/environments/environment.ts",
+          "hash": "4061896709996502357"
+        },
+        {
+          "file": "src/favicon.ico",
+          "hash": "3464744996580215640"
+        },
+        {
+          "file": "src/index.html",
+          "hash": "15429658601403981980"
+        },
+        {
+          "file": "src/main.ts",
+          "hash": "12246588107753938993",
+          "deps": [
+            "npm:@angular/platform-browser-dynamic"
+          ]
+        },
+        {
+          "file": "src/styles.scss",
+          "hash": "4792234250412024426"
+        },
+        {
+          "file": "tsconfig.app.json",
+          "hash": "17337579397915052279"
+        },
+        {
+          "file": "tsconfig.json",
+          "hash": "10682633225512732145"
+        },
+        {
+          "file": "tsconfig.spec.json",
+          "hash": "15575553540147145788"
+        },
+        {
+          "file": "webpack.config.js",
+          "hash": "3358779628504683101",
+          "deps": [
+            "npm:webpack"
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -50,3 +50,6 @@ localhost-key.pem
 localhost.pem
 proxy_old.conf.pem
 proxy.conf.pem
+
+#Personal folders
+/environements
